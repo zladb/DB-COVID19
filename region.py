@@ -19,8 +19,7 @@ needData = rawData.loc[:,['region_code','province','city','latitude.1','longitud
                          'kindergarten_count', 'university_count', 'academy_ratio', 'elderly_population_ratio',
                          'elderly_alone_ratio', 'nursing_home_count']]
 
-#print(regData.iloc[0]['region_code'])
-#print(len(regData)) #5162
+
 # 결측치행 삭제
 regData = needData.dropna(subset=['region_code'])
 
