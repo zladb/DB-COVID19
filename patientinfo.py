@@ -73,9 +73,20 @@ sql = 'ALTER TABLE PATIENTINFO ADD FOREIGN KEY (infected_by) REFERENCES PATIENTI
       'ON DELETE SET NULL ON UPDATE CASCADE;'
 cursor.execute(sql)
 
+# ADD foreign key
+sql = 'ALTER TABLE PATIENTINFO ADD FOREIGN KEY (infection_case) REFERENCES CASE (infection_case) ' \
+      'ON DELETE SET NULL ON UPDATE CASCADE;'
+cursor.execute(sql)
+
 # ADD FK CONSTRAINT
 # sql = 'ALTER TABLE PATIENTINFO ADD CONSTRAINT \'fk_infected_by_patientinfo_patient_id\'' \
 #       'FOREIGN KEY (infected_by) REFERENCES PATIENTINFO (patient_id) ' \
+#       'ON DELETE SET NULL ON UPDATE CASCADE;'
+# cursor.execute(sql)
+
+# ADD FK CONSTRAINT
+# sql = 'ALTER TABLE PATIENTINFO ADD CONSTRAINT \'fk_infection_case_case_infection_case\'' \
+#       'FOREIGN KEY (infection_case) REFERENCES CASE (infection_case) ' \
 #       'ON DELETE SET NULL ON UPDATE CASCADE;'
 # cursor.execute(sql)
 
