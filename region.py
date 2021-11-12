@@ -8,7 +8,7 @@ mydb = mysqldb.connect(
     host='localhost',
     user='root',
     passwd='####',
-    db='lecdb',
+    db='COVID19',
     charset='utf8')
 cursor = mydb.cursor()
 
