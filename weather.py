@@ -7,8 +7,8 @@ import pandas as pd
 mydb = mysqldb.connect(
     host='localhost',
     user='root',
-    passwd='Queenmary12!',
-    db='lecdb',
+    passwd='####',
+    db='COVID19',
     charset='utf8')
 cursor = mydb.cursor()
 
