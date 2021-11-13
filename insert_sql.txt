@@ -13,9 +13,7 @@ CREATE TABLE REGION(
    nursing_home_count INT,
    PRIMARY KEY (region_code )
    );
-// REGION에서 region_code가 null인건 제외하고 입력
-// region_code에 중복값은 하나만 입력시킴
-// longitude와 latitude는 두개의 칼럼이 있어서 null값이 더 적은 쪽을 이용했다
+
 
 CREATE TABLE WEATHER(
    region_code INT NOT NULL,
@@ -27,5 +25,3 @@ CREATE TABLE WEATHER(
    PRIMARY KEY (region_code, wdate)
    );
    
-
-//wdate는 확진일 기준으로 만들었다
