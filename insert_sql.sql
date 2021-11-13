@@ -52,7 +52,7 @@ CREATE TABLE WEATHER(
    wdate DATE NOT NULL,
    avg_temp FLOAT,
    min_temp FLOAT,
-   max_temp FLOAT
+   max_temp FLOAT,
    PRIMARY KEY (region_code, wdate)
    );
    
