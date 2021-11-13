@@ -1,37 +1,37 @@
 import pymysql as mysqldb
-import re
-import numpy as np
 import pandas as pd
 
+def isnan(num):
+    return num != num
+
 # connect to MySQL server
-mydb = mysqldb.connect(
+covidDb = mysqldb.connect(
     host='localhost',
     user='root',
     passwd='####',
     db='COVID19',
     charset='utf8')
-cursor = mydb.cursor()
+cursor = covidDb.cursor()
 
 rawData = pd.read_csv("K_COVID19.csv")
-
 needData = rawData.loc[:,['region_code','province','confirmed_date','avg_temp','min_temp','max_temp']]
 
 # 결측치행 삭제
 weaData = needData.dropna(subset=['region_code','confirmed_date'])
-
 for i in range(0,len(weaData)):
-    # insert R
-    send = "%d , %s , %s, %f, %f, %f" % \
-           (weaData.iloc[i]['region_code'],'"{}"'.format(weaData.iloc[i]['province']), weaData.iloc[i]['confirmed_date'],
-            weaData.iloc[i]['avg_temp'], weaData.iloc[i]['min_temp'], weaData.iloc[i]['max_temp'])
+    wea = "%d , %s , %s, %s, %s, %s" % \
+           (weaData.iloc[i]['region_code'],
+            '"{}"'.format(weaData.iloc[i]['province']),
+            '"{}"'.format(weaData.iloc[i]['confirmed_date']),
+            "NULL" if isnan(weaData.iloc[i]['avg_temp']) else float(weaData.iloc[i]['avg_temp']),
+            "NULL" if isnan(weaData.iloc[i]['avg_temp']) else float(weaData.iloc[i]['min_temp']),
+            "NULL" if isnan(weaData.iloc[i]['avg_temp']) else float(weaData.iloc[i]['max_temp']))
 
-    # ROLES TABLES
-    sendSql = 'INSERT INTO WEATHER VALUES (%s)' % (send)
-    print(sendSql)
+    weaSql = 'INSERT INTO WEATHER VALUES (%s)' % (wea)
+    print(weaSql)
 
     try:
-        cursor.execute(sendSql)
-
+        cursor.execute(weaSql)
     except mysqldb.IntegrityError:
         print("%s already in WEATHER" % (weaData.iloc[i]['region_code']))
 
@@ -45,9 +45,11 @@ try:
 except mysqldb.IntegrityError:
     print("cannot fetch from in WEATHER")
 
-mydb.commit()
+covidDb.commit()
 # Connection 닫기
-mydb.close()
+covidDb.close()
+
+
 
 
 
