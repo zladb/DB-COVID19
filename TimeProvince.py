@@ -39,7 +39,7 @@ for key, group in provName: #key에는 각 지역의 이름이 담겨있다
         prov = "%s , %s , %s, %s, %s" % ('"{}"'.format(TimeData.iloc[i]['date']), '"{}"'.format(key), con, rel, dec)
 
 
-        sql = 'INSERT INTO TimeProvince VALUES (%s)' % (prov)
+        sql = 'INSERT INTO TIMEPROVINCE VALUES (%s)' % (prov)
         print(sql)
 
         try:
@@ -49,14 +49,14 @@ for key, group in provName: #key에는 각 지역의 이름이 담겨있다
 
 
 # 데이타 Fetch 및 SQL 결과 출력
-sql = 'Select * from TimeProvince'
+sql = 'Select * from TIMEPROVINCE'
 try:
     cursor.execute(sql)
     results = cursor.fetchall()
     for row in results:
         print(row)
 except mysqldb.IntegrityError:
-    print("cannot fetch from in TimeProvince")
+    print("cannot fetch from in TIMEPROVINCE")
 
 covidDb.commit()
 # Connection 닫기
