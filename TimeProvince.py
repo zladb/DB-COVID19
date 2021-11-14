@@ -5,7 +5,7 @@ import pandas as pd
 covidDb = mysqldb.connect(
     host='localhost',
     user='root',
-    passwd='Queenmary12!',
+    passwd='####',
     db='COVID19',
     charset='utf8')
 cursor = covidDb.cursor()
@@ -23,7 +23,6 @@ TimeData = TimeData.dropna(subset=['date'])
 
 # province별로 묶기 읽어가면서
 provName = CovData.groupby(['province'])
-#conDate = CovData.groupby(['province', 'confirmed_date'])
 
 # 해당 지역별 날짜마다 확진, 격리해제, 사망자 수
 for key, group in provName: #key에는 각 지역의 이름이 담겨있다
@@ -32,8 +31,6 @@ for key, group in provName: #key에는 각 지역의 이름이 담겨있다
     provDate = CovData[key == CovData['province']]
     provDate = provDate.sort_values(by='confirmed_date')
     for i in range(0, len(TimeData)):
-        #print(key)
-        #print("* count", len(group))
         con += len(provDate[TimeData.iloc[i]['date'] == provDate['confirmed_date']])
         rel += len(provDate[TimeData.iloc[i]['date'] == provDate['released_date']])
         dec += len(provDate[TimeData.iloc[i]['date'] == provDate['deceased_date']])
