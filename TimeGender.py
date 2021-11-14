@@ -44,30 +44,30 @@ for i in range(0, len(TimeData)):
     female = "%s , %s , %s, %s, %s" % \
              ('"{}"'.format(TimeData.iloc[i]['date']), '"{}"'.format("female"), fCon, fRel, fDec)
 
-    mSql = 'INSERT INTO TimeGender VALUES (%s)' % (male)
-    fSql = 'INSERT INTO TimeGender VALUES (%s)' % (female)
+    mSql = 'INSERT INTO TIMEGENDER VALUES (%s)' % (male)
+    fSql = 'INSERT INTO TIMEGENDER VALUES (%s)' % (female)
     # male
     print(mSql)
     try:
         cursor.execute(mSql)
     except mysqldb.IntegrityError:
-        print("male %s already in TimeGender" % (conDate.iloc[i]['date']))
+        print("male %s already in TIMEGENDER" % (conDate.iloc[i]['date']))
 
     # female
     try:
         cursor.execute(fSql)
     except mysqldb.IntegrityError:
-        print("female %s already in TimeGender" % (conDate.iloc[i]['date']))
+        print("female %s already in TIMEGENDER" % (conDate.iloc[i]['date']))
 
 # 데이타 Fetch 및 SQL 결과 출력
-sql = 'Select * from TimeGender'
+sql = 'Select * from TIMEGENDER'
 try:
     cursor.execute(sql)
     results = cursor.fetchall()
     for row in results:
         print(row)
 except mysqldb.IntegrityError:
-    print("cannot fetch from in TimeGender")
+    print("cannot fetch from in TIMEGENDER")
 
 covidDb.commit()
 # Connection 닫기
