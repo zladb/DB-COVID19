@@ -30,7 +30,8 @@ CREATE TABLE IF NOT EXISTS REGION(
    elderly_population_ratio FLOAT NULL,
    elderly_alone_ratio FLOAT NULL,
    nursing_home_count INT NULL,
-   PRIMARY KEY (region_code)
+   PRIMARY KEY (region_code),
+   UNIQUE KEY (province)
    );
    
    
