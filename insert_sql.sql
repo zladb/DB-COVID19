@@ -66,3 +66,11 @@ CREATE TABLE IF NOT EXISTS TIMEINFO(
    deceased int(11) null
    );
    
+CREATE TABLE TimeGender(
+   date DATE NOT NULL,
+   sex VARCHAR(10) NOT NULL,
+   confimed INT(11),
+   released INT(11),
+   deceased INT(11),
+   PRIMARY KEY (date, sex)
+);
