@@ -17,19 +17,19 @@ CREATE TABLE IF NOT EXISTS PATIENTINFO(
    );
 
 
-CREATE TABLE REGION(
+CREATE TABLE IF NOT EXISTS REGION(
    region_code INT NOT NULL,
-   province VARCHAR(50),
-   city VARCHAR(15),
-   latitude FLOAT,
-   longitude FLOAT,
-   elementary_school_count INT,
-   kindergarten_count INT,
-   universtiy_count INT,
-   academy_ratio FLOAT,
-   elderly_population_ratio FLOAT,
-   elderly_alone_ratio FLOAT,
-   nursing_home_count INT,
+   province VARCHAR(50) NULL,
+   city VARCHAR(15) NULL,
+   latitude FLOAT NULL,
+   longitude FLOAT NULL,
+   elementary_school_count INT NULL,
+   kindergarten_count INT NULL,
+   universtiy_count INT NULL,
+   academy_ratio FLOAT NULL,
+   elderly_population_ratio FLOAT NULL,
+   elderly_alone_ratio FLOAT NULL,
+   nursing_home_count INT NULL,
    PRIMARY KEY (region_code)
    );
    
@@ -46,13 +46,13 @@ CREATE TABLE IF NOT EXISTS CASES(
    );
 
 
-CREATE TABLE WEATHER(
+CREATE TABLE IF NOT EXISTS WEATHER(
    region_code INT NOT NULL,
    province VARCHAR(50),
    wdate DATE NOT NULL,
-   avg_temp FLOAT,
-   min_temp FLOAT,
-   max_temp FLOAT,
+   avg_temp FLOAT NULL,
+   min_temp FLOAT NULL,
+   max_temp FLOAT NULL,
    PRIMARY KEY (region_code, wdate)
    );
    
@@ -66,11 +66,20 @@ CREATE TABLE IF NOT EXISTS TIMEINFO(
    deceased int(11) null
    );
    
-CREATE TABLE TimeGender(
+CREATE TABLE IF NOT EXISTS TIMEGENDER(
    date DATE NOT NULL,
    sex VARCHAR(10) NOT NULL,
-   confimed INT(11),
-   released INT(11),
-   deceased INT(11),
+   confimed INT(11) NULL,
+   released INT(11) NULL,
+   deceased INT(11) NULL,
    PRIMARY KEY (date, sex)
+);
+
+CREATE TABLE IF NOT EXISTS TIMEPROVINCE(
+   date DATE NOT NULL,
+   province VARCHAR(50) NOT NULL,
+   confimed INT(11) NULL,
+   released INT(11) NULL,
+   deceased INT(11) NULL,
+   PRIMARY KEY (date, province)
 );
