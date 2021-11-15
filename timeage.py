@@ -10,7 +10,7 @@ import numpy as np
 db = mysqldb.connect(
     host='localhost',
     user='root',
-    passwd='a642642',
+    passwd='####',
     db='COVID19',
     charset='utf8'
 )
