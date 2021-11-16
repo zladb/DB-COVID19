@@ -1,6 +1,7 @@
 
-# COVID-19
-# add timeage to database
+# DB TEAM PROJECT #2 - 5팀(김유진, 이지원)
+# COVID-19 TimeAge.py
+# INSERT DATA TO TIMEAGE
 
 import pymysql as mysqldb
 import pandas as pd
@@ -56,7 +57,7 @@ for index, row in TIME_info.iterrows():
         for c in result1:
             temp = confirmed_count['%s' % c['age']] + c['c_count']
             confirmed_count.update({('%s' % c['age']): temp})
-            # print(confirmed_count)
+            print(confirmed_count)
 
 
     sql = 'SELECT age, deceased_date, count(*) as d_count FROM PATIENTINFO WHERE deceased_date=\'%s\' GROUP BY (age)' % str(row.date)
@@ -69,7 +70,7 @@ for index, row in TIME_info.iterrows():
         for d in result2:
             temp = deceased_count['%s' % d['age']] + d['d_count']
             deceased_count.update({('%s' % d['age']): temp})
-            # print(deceased_count)
+            print(deceased_count)
 
     # 데이터 삽입하기
     for age in confirmed_count.keys():
