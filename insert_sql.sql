@@ -50,7 +50,7 @@ CREATE TABLE IF NOT EXISTS CASES(
 CREATE TABLE IF NOT EXISTS WEATHER(
    region_code INT NOT NULL,
    province VARCHAR(50),
-   wdate DATE NOT NULL UNIQUE,
+   wdate DATE NOT NULL,
    avg_temp FLOAT NULL,
    min_temp FLOAT NULL,
    max_temp FLOAT NULL,
