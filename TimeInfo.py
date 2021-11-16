@@ -1,6 +1,7 @@
 
-# COVID-19
-# add timeinfo to database
+# DB TEAM PROJECT #2 - 5팀(김유진, 이지원)
+# COVID-19 TimeInfo.py
+# INSERT DATA TO TIMEINFO
 
 import pymysql as mysqldb
 import pandas as pd
@@ -72,7 +73,7 @@ for index, row in TIME_info.iterrows():
 
     # 튜플에 데이터 저장
     tu = (str(row.date), str(row.test), str(row.negative), str(confirmed), str(released), str(deceased))
-    #print(tu)
+    # print(tu)
 
 
     cursor.execute("""INSERT IGNORE INTO TIMEINFO (date, test, negative, confirmed, released, deceased)
