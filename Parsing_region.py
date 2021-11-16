@@ -1,3 +1,8 @@
+
+# DB TEAM PROJECT #2 - 5팀(김유진, 이지원)
+# COVID19 Parsing_region.py
+# add REGION to database
+
 import pymysql as mysqldb
 import re
 import numpy as np
@@ -7,7 +12,7 @@ import pandas as pd
 mydb = mysqldb.connect(
     host='localhost',
     user='root',
-    passwd='####',
+    passwd='a642642',
     db='COVID19',
     charset='utf8')
 cursor = mydb.cursor()
@@ -15,7 +20,7 @@ cursor = mydb.cursor()
 rawData = pd.read_csv("K_COVID19.csv")
 
 #rawData.info()
-needData = rawData.loc[:,['region_code','province','city','latitude.1','longitude.1','elementary_school_count',
+needData = rawData.loc[:, ['region_code', 'province', 'city', 'latitude.1', 'longitude.1', 'elementary_school_count',
                          'kindergarten_count', 'university_count', 'academy_ratio', 'elderly_population_ratio',
                          'elderly_alone_ratio', 'nursing_home_count']]
 
