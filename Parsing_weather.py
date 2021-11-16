@@ -1,3 +1,8 @@
+
+# DB TEAM PROJECT #2 - 5팀(김유진, 이지원)
+# COVID19 Parsing_weather.py
+# add WEATHER to database
+
 import pymysql as mysqldb
 import pandas as pd
 
@@ -48,10 +53,3 @@ except mysqldb.IntegrityError:
 covidDb.commit()
 # Connection 닫기
 covidDb.close()
-
-
-
-
-
-
-
