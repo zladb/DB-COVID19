@@ -1,3 +1,8 @@
+
+# DB TEAM PROJECT #2 - 5팀(김유진, 이지원)
+# COVID-19 TimeProvince.py
+# INSERT DATA TO TIMEPROVINCE
+
 import pymysql as mysqldb
 import pandas as pd
 
@@ -37,7 +42,6 @@ for key, group in provName: #key에는 각 지역의 이름이 담겨있다
 
         # 입력값 순서대로 날짜, 지역, confirmed released deceased
         prov = "%s , %s , %s, %s, %s" % ('"{}"'.format(TimeData.iloc[i]['date']), '"{}"'.format(key), con, rel, dec)
-
 
         sql = 'INSERT INTO TIMEPROVINCE VALUES (%s)' % (prov)
         print(sql)
