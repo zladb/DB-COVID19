@@ -1,3 +1,8 @@
+
+# DB TEAM PROJECT #2 - 5팀(김유진, 이지원)
+# COVID-19 TimeGender.py
+# INSERT DATA TO TIMEGENDER
+
 import pymysql as mysqldb
 import pandas as pd
 
@@ -5,7 +10,7 @@ import pandas as pd
 covidDb = mysqldb.connect(
     host='localhost',
     user='root',
-    passwd='####',
+    passwd='a642642',
     db='COVID19',
     charset='utf8')
 cursor = covidDb.cursor()
@@ -51,13 +56,13 @@ for i in range(0, len(TimeData)):
     try:
         cursor.execute(mSql)
     except mysqldb.IntegrityError:
-        print("male %s already in TIMEGENDER" % (mCon)
+        print("male %s already in TIMEGENDER" % (mCon))
 
     # female
     try:
         cursor.execute(fSql)
     except mysqldb.IntegrityError:
-        print("female %s already in TIMEGENDER" % (fCon)
+        print("female %s already in TIMEGENDER" % (fCon))
 
 # 데이타 Fetch 및 SQL 결과 출력
 sql = 'Select * from TIMEGENDER'
@@ -72,8 +77,3 @@ except mysqldb.IntegrityError:
 covidDb.commit()
 # Connection 닫기
 covidDb.close()
-
-
-
-
-
