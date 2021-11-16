@@ -5,7 +5,7 @@ import pandas as pd
 covidDb = mysqldb.connect(
     host='localhost',
     user='root',
-    passwd='Queenmary12!',
+    passwd='####',
     db='COVID19',
     charset='utf8')
 cursor = covidDb.cursor()
@@ -51,13 +51,13 @@ for i in range(0, len(TimeData)):
     try:
         cursor.execute(mSql)
     except mysqldb.IntegrityError:
-        print("male %s already in TIMEGENDER" % (conDate.iloc[i]['date']))
+        print("male %s already in TIMEGENDER" % (mCon)
 
     # female
     try:
         cursor.execute(fSql)
     except mysqldb.IntegrityError:
-        print("female %s already in TIMEGENDER" % (conDate.iloc[i]['date']))
+        print("female %s already in TIMEGENDER" % (fCon)
 
 # 데이타 Fetch 및 SQL 결과 출력
 sql = 'Select * from TIMEGENDER'
