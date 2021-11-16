@@ -6,8 +6,8 @@
 
 PATIENTINFO, TIMEINFO에 데이터를 먼저 넣은 후 나머지 데이터들을 넣는다.
 
-모든 프로그램은 CSV 데이터 파일을 pandas를 이용하여 처리하였다.
-df.dropna를 이용하여 key에 있는 null값을 모두 삭제했다.
+모든 프로그램은 CSV 데이터 파일을 pandas를 이용하여 처리.
+df.dropna를 이용하여 key에 있는 null값을 모두 삭제함.
 
 CASE로 테이블을 만드려고 하니 오류가 생겨서 CASES로 이름을 정했다.
 
@@ -15,20 +15,8 @@ CASE로 테이블을 만드려고 하니 오류가 생겨서 CASES로 이름을 
 - PATIENTINFO (5162 row)
 - CASES (123 row)
 - REGION (171 row)
-- WETHER (2551 row)
+- WEATHER (2551 row)
 - TIMEINFO (163 row)
 - TIMEAGE (1793 row)
 - TIMEGENDER (326 row)
 - TIMEPROVINCE (2771 row)
-
-
-1. Parsing_patient.py
-  
-
-2. Pasring_case.py
-
-
-3. Parsing_region.py
-
-
-4. Parsing_weather.py
