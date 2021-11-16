@@ -1,5 +1,6 @@
 
-# COVID-19
+# DB TEAM PROJECT #2 - 5팀(김유진, 이지원)
+# COVID-19 Pasring_case.py
 # add case to database
 
 import pymysql as mysqldb
@@ -55,11 +56,9 @@ for index, row in COVID_info.iterrows():
           str(row.c_latitude), str(row.c_longitude))
     # print(tu)
 
-    cursor.execute("""INSERT IGNORE INTO CASES (case_id, province, city, infection_group, infection_case, confirmed,
-    latitude, longitude) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)""", tu)
+    cursor.execute("""INSERT IGNORE INTO CASES (case_id, province, city, infection_group, infection_case, confirmed, latitude, longitude) VALUES (%s, %s, %s, %s, %s, %s, %s, %s);""", tu)
 
-    print("""INSERT IGNORE INTO CASES (case_id, province, city, infection_group, infection_case, confirmed,
-    latitude, longitude) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)""", tu)
+    print("""INSERT IGNORE INTO CASES (case_id, province, city, infection_group, infection_case, confirmed, latitude, longitude) VALUES (%s, %s, %s, %s, %s, %s, %s, %s);""", tu)
 
 # case_id = null인 case 삭제
 cursor.execute("DELETE FROM CASES WHERE case_id=\'0\';")
