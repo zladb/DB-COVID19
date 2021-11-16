@@ -1,5 +1,6 @@
 
-# COVID-19
+# DB TEAM PROJECT #2 - 5팀(김유진, 이지원)
+# COVID-19 Parsing_patient.py
 # add patientinfo to database
 
 import pymysql as mysqldb
@@ -34,7 +35,7 @@ confirmed_date date null,
 released_date date null,
 deceased_date date null,
 state varchar(20) null
-)'''
+);'''
 cursor.execute(sql)
 
 
@@ -47,6 +48,8 @@ COVID_info = pd.read_csv('K_COVID19.csv')
 
 # 파이썬의 Nan 값을 NULL로 바꿔줌.
 COVID_info = COVID_info.replace(np.nan, 'NULL')
+
+cursor.execute(sql)
 
 for index, row in COVID_info.iterrows():
 
@@ -63,35 +66,6 @@ for index, row in COVID_info.iterrows():
     print("""INSERT IGNORE INTO PATIENTINFO (patient_id, sex, age, country, province, city,
     infection_case, infected_by, contact_number, symptom_onset_date, confirmed_date, released_date,
     deceased_date, state) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)""", tu)
-
-
-sql = 'SET foreign_key_checks = 0;'
-cursor.execute(sql)
-
-# ADD foreign key
-sql = 'ALTER TABLE PATIENTINFO ADD FOREIGN KEY (infected_by) REFERENCES PATIENTINFO (patient_id) ' \
-      'ON DELETE SET NULL ON UPDATE CASCADE;'
-cursor.execute(sql)
-
-# ADD foreign key
-sql = 'ALTER TABLE PATIENTINFO ADD FOREIGN KEY (infection_case) REFERENCES CASE (infection_case) ' \
-      'ON DELETE SET NULL ON UPDATE CASCADE;'
-cursor.execute(sql)
-
-# ADD FK CONSTRAINT
-# sql = 'ALTER TABLE PATIENTINFO ADD CONSTRAINT \'fk_infected_by_patientinfo_patient_id\'' \
-#       'FOREIGN KEY (infected_by) REFERENCES PATIENTINFO (patient_id) ' \
-#       'ON DELETE SET NULL ON UPDATE CASCADE;'
-# cursor.execute(sql)
-
-# ADD FK CONSTRAINT
-# sql = 'ALTER TABLE PATIENTINFO ADD CONSTRAINT \'fk_infection_case_case_infection_case\'' \
-#       'FOREIGN KEY (infection_case) REFERENCES CASE (infection_case) ' \
-#       'ON DELETE SET NULL ON UPDATE CASCADE;'
-# cursor.execute(sql)
-
-sql = 'SET foreign_key_checks = 1;'
-cursor.execute(sql)
 
 db.commit()
 db.close()
