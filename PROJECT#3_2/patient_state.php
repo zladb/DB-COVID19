@@ -44,7 +44,8 @@
               }
             }
           else{
-            $sql = "select * from PatientInfo order by patient_id ;";
+            $s = 0;
+            $sql = "select * from PatientInfo Where state = '" . $state[$s].  "' order by patient_id ;";
           }
           $resultset = mysqli_query($link, $sql);
           $count = mysqli_num_rows($resultset);
