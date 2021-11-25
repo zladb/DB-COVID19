@@ -49,7 +49,7 @@
           }
           $resultset = mysqli_query($link, $sql);
           $count = mysqli_num_rows($resultset);
-          echo 'PatientInfo table (Currently ' . $count . ') patientin database which state is '. $state[$s] . ' <br>';
+          echo 'PatientInfo table (Currently ' . $count . ') patient in database which state is '. $state[$s] . ' <br>';
         ?>
       </h2>
       <table class="table table-striped">
