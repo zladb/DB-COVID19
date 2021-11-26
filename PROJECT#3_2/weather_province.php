@@ -15,7 +15,7 @@
 </style>
 
 <body>
-        <h1> Case 선택하세요 <br> </h1>
+        <h1> Province 선택하세요 <br> </h1>
         <!-- 여기 드롭다운 박스-->
 
           <?php
