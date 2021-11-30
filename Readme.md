@@ -1,7 +1,16 @@
-// province_case_age.php의 Readme.md
-각 지역의 케이스에 따라 확진자의 나이대 분포를 알아보고자 했다.
+// DB_TEAM PROJECT #3-3, 5팀 (김유진, 이지원)
+// elderly_city.php의 Readme.md
 
-사용한 테이블은 case와 patientinfo이다.
-각 province만 선택했을 때 case만 선택했을 때 모두 다 선택했을 때로 나누어 볼수 있다.
-그중 case는 지역과 연관이 깊기 때문에 province를 선택한 후 submit을 누르면
-case에는 해당지역에서 발생한 case만 선택할 수 있다.
+노령인구의 비율이 20퍼센트 이상인 도시의 case를 나타내었다.
+사용한 테이블 -> region, patientinfo
+
+create or replace view elderly_city as 
+        select p.province, p.city, p.infection_case, r.elderly_population_ratio 
+        from REGION as r join PATIENTINFO as p on r.city=p.city 
+        where r.elderly_population_ratio>'20'
+        group by city, infection_case;
+        
+ 
+region.elderly_population_ratio > 20인 데이터를 
+region과 patient의 city를 기준으로 join하였으며,
+(city, infection_case)를 그룹으로 묶었다.
