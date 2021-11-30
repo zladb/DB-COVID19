@@ -1,5 +1,5 @@
 <?php
-            require_once 'dbconfig.php';
+    require_once 'dbconfig.php';
 ?>
 
 <html>
@@ -28,7 +28,7 @@
               <select name="stateVal">
                 <?php while( $row = mysqli_fetch_array($result) ){
                         $state[$i] = $row['state']; $i = $i + 1;?>
-                        <option value="<?php echo $row['state']; ?>"> <?php echo $row['state']; ?></option>
+                        <option value="<?php echo $row['state'];?>" <?php if(isset($_POST['stateVal'])) echo ($_POST['stateVal']==$row['state'])? ' selected':'';?>> <?php echo $row['state']; ?></option>
                       <?php } ?>
                     </select>
                     <input type="submit" value="Submit"/>
