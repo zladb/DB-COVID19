@@ -1,5 +1,5 @@
 <?php
-            require_once 'dbconfig.php';
+    require_once 'dbconfig.php';
 ?>
 
 <html>
@@ -21,14 +21,15 @@
           <?php
             $i = 0;
             //group by state
-            $sql = "select * from cases group by infection_case;";
+            $sql = "select infection_case from cases group by infection_case;";
             $result = mysqli_query($link, $sql);
+            //echo $result;
             ?>
             <form method="post">
               <select name="infCase">
                 <?php while( $row = mysqli_fetch_array($result) ){
                         $caseName[$i] = $row['infection_case']; $i = $i + 1;?>
-                        <option value="<?php echo $row['infection_case']; ?>"> <?php echo $row['infection_case']; ?></option>
+                        <option value="<?php echo $row['infection_case'];?>" <?php if(isset($_POST['infCase'])) echo ($_POST['infCase']==$row['infection_case'])? ' selected':'';?>> <?php echo $row['infection_case']; ?></option>
                       <?php } ?>
                     </select>
                     <input type="submit" value="Submit"/>
