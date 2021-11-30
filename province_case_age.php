@@ -103,8 +103,8 @@
         else if(isset($_POST['infCase']) && isset($_POST['selectProv'])){  //지역, 케이스 모두 선택 ?>
           <h2> 해당 지역에 속한 케이스의 나이대별 <br> </h2>
           <?php
-          echo 'province_case_age table patients in database which porvince is '. $_POST['selectProv'] . ' <br>';
-          $sql = "select age, count(*) from patientinfo Where province = '". $_POST['selectProv']."' && Where infection_case = '". $_POST['infCase']."' group by age;";
+          echo "province_case_age table patients in database which case is '". $_POST['infCase'] ."' in '" . $_POST['selectProv'] . "'  <br>";
+          $sql = "select age, count(*) from patientinfo, cases C Where C.province = '". $_POST['selectProv']."' && C.infection_case = '". $_POST['infCase']."' group by age;";
           //echo $sql;
           $resultset = mysqli_query($link, $sql);
           ?>
@@ -121,8 +121,7 @@
               print "</tr>";
           }?>
           </table>
-        <?php }
-        else {  //아무것도 선택하지 않았을때 ?>
+        <?php } else {  //아무것도 선택하지 않았을때 ?>
               <h2> 나이대별 모든 테이블 <br> </h2>
               <?php
               echo 'All tables of patient info <br>';
@@ -144,9 +143,6 @@
               }?>
               </table>
             <?php } ?>
-
-
-
 
 </body>
 </html>
