@@ -31,6 +31,10 @@ sql = '''CREATE TABLE IF NOT EXISTS HOSPITAL(
 );'''
 cursor.execute(sql)
 
+# NO_ZERO_DATE 설정 해제
+sql = 'SET GLOBAL sql_mode = \'\';'
+cursor.execute(sql)
+
 # patientinfo에 hospital_id column을 추가한다. 만약 존재한다면 이 부분을 주석처리해준다.
 sql = 'ALTER TABLE PATIENTINFO ADD hospital_id INT NULL;'
 cursor.execute(sql)
