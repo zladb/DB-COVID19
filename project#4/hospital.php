@@ -44,8 +44,8 @@
                     $x = $val;
                   else if($key == "latitude") //y 좌표
                     $y = $val;
-                  if($key == "current"){  // 테이블 생성    
-                    print "<td> <a href= \"http://localhost/hospital_map?x=<%=<?php $x ?>%>&y=<%=<?php $y ?>%>\">" . $val . "</a> </td>";
+                  if($key == "current"){  // 테이블 생성
+                    print "<td> <a href= \"http://localhost/hospital_map?x=<%=<?php $x ?>%>&y=<%=<?php $y ?>%>&h=<%=<?php $val ?>%>\">" . $val . "</a> </td>";
                   }else{
                       print "<td>" . $val . "</td>";
                     }
@@ -53,6 +53,7 @@
                 print "</tr>";
             }
         ?>
+      </form>
     </table>
 </body>
 </html>
