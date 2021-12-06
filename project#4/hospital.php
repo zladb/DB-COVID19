@@ -62,19 +62,20 @@
         }
     ?>
 
-      <form action="hosptial_map.php" method="post">
+      <form action="hospital_map.php" method="post">
         <?php
             while($row = mysqli_fetch_assoc($result)){
                 foreach ($row as $key => $val)
                 {
                     if($key == "hospital_id")
                     {  // 테이블 생성
-                        $sql = "select latitude, longitude from HOSPITAL WHERE id = {$val}";
+                        $sql = "select name, latitude, longitude from HOSPITAL WHERE id = {$val}";
                         $result2 = mysqli_query($link, $sql);
                         $point = mysqli_fetch_assoc($result2);
                         $x = $point["longitude"];   // 경도
                         $y = $point["latitude"];    // 위도
-                        print "<td> <a href= \"http://localhost/hospital_map?x=<%=<?php $x ?>%>&y=<%=<?php $y ?>%>&h=<%=<?php $val ?>%>\">" . $val . "</a> </td>"; 
+                        $name = $point["name"];
+                        print "<td> <a href= \"http://localhost/hospital_map?x=$x&y=$y&name=$name\">" . $val . "</a> </td>";
                     }
                     else
                     print "<td>" . $val . "</td>";
