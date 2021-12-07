@@ -1,5 +1,5 @@
 <?php
-    $dPconfig['dbhost'] = 'localhost';
+    $dPconfig['dbhost'] = 'localhost'; 
     $dPconfig['dbuser'] = 'root';
     $dPconfig['dbpass'] = '####';
     $dPconfig['dbname'] = 'COVID19';
