@@ -1,5 +1,6 @@
 // DB TEAM PROJECT #4 - 5팀(김유진, 이지원)</br>
 
+
 <?php
     $dPconfig['dbhost'] = 'localhost';
     $dPconfig['dbuser'] = 'root';
