@@ -11,6 +11,6 @@ create or replace view elderly_city as
         group by city, infection_case;
         
  
-region.elderly_population_ratio > 20인 데이터를 
+region.elderly_population_ratio > 20인 데이터를  
 region과 patient의 city를 기준으로 join하였으며,
 (city, infection_case)를 그룹으로 묶었다.
