@@ -1,4 +1,4 @@
-// DB_TEAM PROJECT #3-3, 5팀 (김유진, 이지원)
+// DB_TEAM PROJECT #3-3, 5팀 (김유진, 이지원) 
 // elderly_city.php의 Readme.md
 
 노령인구의 비율이 20퍼센트 이상인 도시의 case를 나타내었다.
